@@ -62,14 +62,23 @@ export default {
     },
     methods:{
         play(){
-            window.audioList.forEach(audio=>{//开始前先关闭所有可能正在运行的实例
-                audio.pause()
-            })
+            // window.audioList.forEach(audio=>{//开始前先关闭所有可能正在运行的实例
+            //     audio.pause()
+            // })
+            console.log(window.audioList, this.audio.pause, '------')
             if(this.audio.paused){
+                console.log(1)
                 this.audio.play()
             }else{
+                console.log(2)
                 this.audio.pause()
             }
+        },
+        closeAllAudio() {
+            // 关闭所有正在播放的音频
+            window.audioList.forEach(audio=>{
+                audio.pause()
+            })
         },
         format(s){
             var t='';
